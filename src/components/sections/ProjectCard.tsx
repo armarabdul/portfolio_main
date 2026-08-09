@@ -6,7 +6,15 @@ import { Project } from "@/types/project";
 import { GlassCard } from "@/components/shared/GlassCard";
 import { TechBadge } from "@/components/shared/TechBadge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ArrowRight, Layers, CheckCircle2 } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowRight,
+  Layers,
+  CheckCircle2,
+  Briefcase,
+  FlaskConical,
+  GraduationCap,
+} from "lucide-react";
 import { GithubIcon } from "@/components/shared/SocialIcons";
 import { ProjectModal } from "./ProjectModal";
 
@@ -15,20 +23,61 @@ interface ProjectCardProps {
   priority?: boolean;
 }
 
+const CATEGORY_META: Record<
+  string,
+  { label: string; icon: React.ReactNode; className: string }
+> = {
+  professional: {
+    label: "Professional",
+    icon: <Briefcase className="h-3 w-3" />,
+    className:
+      "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
+  },
+  research: {
+    label: "Research",
+    icon: <FlaskConical className="h-3 w-3" />,
+    className: "bg-violet-500/10 border-violet-500/30 text-violet-400",
+  },
+  academic: {
+    label: "Academic",
+    icon: <GraduationCap className="h-3 w-3" />,
+    className:
+      "bg-sky-500/10 border-sky-500/30 text-sky-400",
+  },
+};
+
+function getCategoryMeta(category: string) {
+  return (
+    CATEGORY_META[category] ?? {
+      label: category.toUpperCase(),
+      icon: null,
+      className:
+        "bg-primary/10 border-primary/20 text-primary",
+    }
+  );
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const meta = getCategoryMeta(project.category);
 
   return (
     <>
-      <GlassCard hover className="p-8 flex flex-col justify-between group relative overflow-hidden">
+      <GlassCard
+        hover
+        className="p-8 flex flex-col justify-between group relative overflow-hidden"
+      >
         {/* Top gradient highlight on hover */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         <div>
           {/* Card Header & Category Badge */}
           <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
-              {project.category.toUpperCase()}
+            <span
+              className={`inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border ${meta.className}`}
+            >
+              {meta.icon}
+              {meta.label}
             </span>
             {project.status && (
               <span className="font-mono text-xs text-muted-foreground capitalize">
@@ -53,7 +102,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {project.features.slice(0, 4).map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-xs text-muted-foreground"
+                  >
                     <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0" />
                     <span className="truncate">{feat}</span>
                   </div>
@@ -89,8 +141,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Button>
 
             {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="ghost" className="rounded-full gap-1.5 text-xs">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="rounded-full gap-1.5 text-xs"
+                >
                   <GithubIcon className="h-3.5 w-3.5" />
                   Code
                 </Button>
@@ -98,8 +158,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
 
             {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="ghost" className="rounded-full gap-1.5 text-xs text-accent">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="rounded-full gap-1.5 text-xs text-accent"
+                >
                   <ExternalLink className="h-3.5 w-3.5" />
                   Live Demo
                 </Button>

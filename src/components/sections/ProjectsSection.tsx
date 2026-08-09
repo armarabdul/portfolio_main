@@ -9,15 +9,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export function ProjectsSection() {
-  // Dynamically select featured projects
-  const featuredProjects = projects.filter((p) => p.featured);
+  // Show professional + research projects on the homepage (highest priority)
+  const featuredProjects = projects.filter(
+    (p) => p.category === "professional" || p.category === "research"
+  );
 
   return (
     <section id="projects" className="py-24 relative section-pattern">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           title="Featured Projects"
-          subtitle="Real-world engineering solutions across AI/ML, Blockchain, and Full Stack Architecture."
+          subtitle="Professional industry work and research projects across AI/ML, Blockchain, and Full-Stack Architecture."
         />
 
         {/* Dynamic Project Grid */}
@@ -44,7 +46,7 @@ export function ProjectsSection() {
               className="rounded-full border-primary/40 hover:border-primary hover:bg-primary/10 gap-2.5 px-8 py-6 text-base font-semibold glow-blue transition-all"
             >
               <Sparkles className="h-4 w-4 text-primary" />
-              Explore All Projects Archive ({projects.length})
+              Explore Full Projects Archive ({projects.length})
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>

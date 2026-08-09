@@ -1,10 +1,12 @@
 export type ProjectCategory =
+  | "professional"
+  | "research"
+  | "academic"
   | "web"
   | "ai-ml"
   | "blockchain"
   | "mobile"
   | "iot"
-  | "research"
   | "other";
 
 export type ProjectStatus =

@@ -46,28 +46,37 @@ export const publications: Publication[] = [
       "MetaMask",
       "VS Code Extension",
     ],
-    pdfUrl: undefined, // Placeholder — add PDF when available
-    doiUrl: undefined, // Placeholder — add DOI when published
-    externalUrl: undefined, // Placeholder
+    pdfUrl: "/research/Blockchain_research_paper.pdf",
+    doiUrl: undefined,
+    externalUrl: undefined,
   },
   {
     id: "adversarial-prompting-llm",
     slug: "adversarial-prompting-llm",
     title:
       "Adversarial Prompting and Jailbreak Attacks in Large Language Models: Detection and Mitigation Strategies",
-    authors: ["Abdul Muqeet Armar"],
+    authors: [
+      "Abdul Muqeet Armar",
+      "Nubila Jaleel",
+      "Mohammed Sinan Marikattay",
+    ],
+    institution: "Bearys Institute of Technology, Mangalore",
+    department: "Department of Computer Science & Engineering",
+    framework: "JBSHIELD",
     type: "conference",
     status: "under-review",
     featured: true,
     abstract:
-      "This research investigates adversarial prompting and jailbreak attacks targeting large language models (LLMs). It explores detection mechanisms and mitigation strategies to enhance the safety and reliability of LLM-based systems. The study examines prompt injection techniques, evaluates existing defense mechanisms, and proposes strategies for improving AI safety in production deployments.",
+      "The rapid integration of Large Language Models (LLMs) such as GPT-4 and similar architectures into real-world applications has revolutionized natural language understanding, but it has also unveiled pressing security challenges. Among the most critical are adversarial prompting and jailbreak attacks, wherein attackers craft subtle or cleverly engineered inputs to exploit model loopholes, bypassing built-in safeguards to elicit unintended, inappropriate, or harmful outputs. Addressing these evolving threats demands solutions that are not only accurate but adaptive and comprehensive. In this study, we introduce JBSHIELD—a unified detection and mitigation framework that leverages both supervised classification and unsupervised anomaly detection techniques. The proposed system employs multi-stage feature extraction and ensemble decision-making to identify a broad spectrum of hostile prompts in real time. Our mitigation stack consists of prompt filtering, robust response sanitization, and dynamic policy enforcement, working together to dramatically reduce successful attack rates. Through rigorous experimentation on a synthetic benchmark containing 5,000 diverse prompts, including 2,000 maliciously crafted examples, JBSHIELD achieves a detection accuracy of 96.4% and reduces the attack success rate from a baseline of 45% to just 5%. These results highlight the framework's potential as a proactive defense for next-generation AI applications, promoting safer and more trustworthy deployment of LLMs in sensitive domains.",
+    datasetSummary:
+      "Synthetic benchmark containing 5,000 diverse prompts: 3,000 benign user inputs, 1,500 intentionally harmful prompts, and 500 advanced jailbreak attack examples (totaling 2,000 maliciously crafted prompts). Generated through manual curation and automated methods including paraphrasing, synonym swaps, and instruction manipulation.",
     keywords: [
-      "Large Language Models",
-      "Adversarial Prompting",
-      "Jailbreak Attacks",
-      "Prompt Injection",
-      "LLM Security",
-      "AI Safety",
+      "Adversarial prompting",
+      "Jailbreak attacks",
+      "Large language models",
+      "Anomaly detection",
+      "Machine learning security",
+      "Multi-tiered mitigation",
     ],
     researchAreas: [
       "AI Safety",
@@ -77,13 +86,61 @@ export const publications: Publication[] = [
       "Natural Language Processing",
     ],
     technologies: [
-      "Python",
-      "LLMs",
-      "NLP",
-      "Machine Learning",
+      "Python 3.9",
+      "PyTorch",
+      "scikit-learn",
+      "Hugging Face Transformers",
+      "NumPy",
+      "SciPy",
+      "Docker",
+      "GPT-2",
+      "GPT-4",
+      "PaLM 2",
     ],
-    pdfUrl: undefined, // Placeholder
-    doiUrl: undefined, // Placeholder
-    externalUrl: undefined, // Placeholder
+    methodologySteps: [
+      "Input Handling & Preprocessing: Prompt normalization, lowercasing, punctuation removal, and tokenization.",
+      "Feature Extraction: Syntactic features (parse trees, sentence length, n-gram frequencies), semantic embeddings, prompt rarity, character-level statistics, and lexical diversity.",
+      "Hybrid Detection Engine: Random Forest supervised classifier coupled with an Autoencoder trained strictly on benign prompts for unsupervised anomaly detection.",
+      "Concept Subspace Analysis: Hidden-state analysis using Singular Value Decomposition (SVD) and concept vector computation across toxic and jailbreak concept subspaces.",
+      "Ensemble Decision Logic: Calibrated decision scoring combining Random Forest prediction probabilities, Autoencoder reconstruction error, and concept subspace distance scores.",
+      "Multi-Tiered Mitigation: Regex-based prompt filtering, semantic similarity filtering, response sanitization, toxicity classification, policy rule checking, dynamic policy enforcement, and human-in-the-loop escalation.",
+      "Continuous Learning Pipeline: Security event logging, collection of adversarial and borderline prompts, retraining pipeline, and feedback-driven model refinement.",
+    ],
+    mitigationTiers: [
+      "Regex-Based Prompt Filtering: Immediate pattern matching against known adversarial structures.",
+      "Semantic Similarity Filtering: Embeddings matching against jailbreak vector indices.",
+      "Toxicity & Policy Checking: Real-time classification against organizational alignment policies.",
+      "Response Sanitization: Automated stripping and rewriting of policy-violating model outputs.",
+      "Dynamic Policy Enforcement: Adaptive rule application based on context and risk severity.",
+      "Human-In-The-Loop Escalation: Routing ambiguous borderline cases for human review.",
+    ],
+    experimentalResults: [
+      { label: "Detection Accuracy", value: "96.4%" },
+      { label: "Recall", value: "94.1%" },
+      { label: "False Positive Rate", value: "2.8%" },
+      { label: "Baseline Attack Success Rate", value: "45%" },
+      { label: "JBSHIELD Attack Success Rate", value: "5%" },
+      { label: "Avg Processing Latency", value: "<120 ms/prompt" },
+    ],
+    contributions: [
+      "Introduced JBSHIELD, a unified detection and mitigation framework combining supervised, unsupervised, and concept subspace analysis.",
+      "Developed a hybrid ensemble architecture coupling Random Forest classification with Autoencoder anomaly detection.",
+      "Implemented Singular Value Decomposition (SVD) hidden-state analysis for toxic and jailbreak concept subspace mapping.",
+      "Designed a multi-tiered mitigation workflow integrating prompt filtering, response sanitization, and dynamic policy enforcement.",
+      "Demonstrated significant reduction in attack success rate (from 45% to 5%) under sub-120ms latency constraints.",
+    ],
+    limitations: [
+      "Zero-day adversarial prompt variants engineered with novel perturbation techniques may initially evade detection thresholds.",
+      "Human-in-the-loop escalation handling can introduce processing latency and operational overhead.",
+    ],
+    futureWork: [
+      "Integration of Explainable AI (XAI) techniques to enhance decision interpretability.",
+      "Further automation of escalation workflows to reduce human intervention latency.",
+      "Extension of the JBSHIELD framework to multimodal large language models.",
+      "Enhanced detection capabilities for zero-day prompt attack variants.",
+    ],
+    pdfUrl: "/research/PID-327.pdf",
+    doiUrl: undefined,
+    externalUrl: undefined,
   },
 ];

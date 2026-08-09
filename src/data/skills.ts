@@ -6,6 +6,7 @@ export const skillCategories: SkillCategory[] = [
     name: "Frontend",
     icon: "Monitor",
     skills: [
+      { name: "JavaScript" },
       { name: "React" },
       { name: "Next.js" },
       { name: "HTML" },
@@ -23,6 +24,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Django" },
       { name: "Flask" },
       { name: "FastAPI" },
+      { name: "ASP.NET" },
       { name: "Node.js" },
       { name: "Express" },
       { name: "PHP" },
@@ -39,6 +41,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "TensorFlow" },
       { name: "Pandas" },
       { name: "NumPy" },
+      { name: "Matplotlib" },
     ],
   },
   {
@@ -60,6 +63,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "SQLite" },
       { name: "MySQL" },
+      { name: "SQL Server" },
       { name: "MongoDB" },
     ],
   },

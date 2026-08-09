@@ -13,6 +13,11 @@ export type PublicationStatus =
   | "accepted"
   | "preprint";
 
+export interface ExperimentalResult {
+  label: string;
+  value: string;
+}
+
 export interface Publication {
   id: string;
   slug: string;
@@ -31,4 +36,14 @@ export interface Publication {
   doiUrl?: string;
   externalUrl?: string;
   citation?: string;
+  framework?: string;
+  institution?: string;
+  department?: string;
+  datasetSummary?: string;
+  methodologySteps?: string[];
+  mitigationTiers?: string[];
+  experimentalResults?: ExperimentalResult[];
+  contributions?: string[];
+  limitations?: string[];
+  futureWork?: string[];
 }

@@ -6,6 +6,92 @@ interface ArchitectureDiagramProps {
 }
 
 export function ArchitectureDiagram({ slug }: ArchitectureDiagramProps) {
+  if (slug === "grey-erp-solution") {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              ERP Module & Data Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              ASP.NET ERP: Module Workflows + SQL Database Integration
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            Enterprise ERP
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">01. ERP Modules</div>
+            <h4 className="text-sm font-bold text-foreground">Accounts & Properties</h4>
+            <p className="text-xs text-muted-foreground">Financial accounts, property records, receipts, payments, and reporting workflows.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">02. Application Layer</div>
+            <h4 className="text-sm font-bold text-foreground">ASP.NET Backend</h4>
+            <p className="text-xs text-muted-foreground">Business logic, module controllers, and API development in ASP.NET.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">03. API Layer</div>
+            <h4 className="text-sm font-bold text-foreground">API Integration</h4>
+            <p className="text-xs text-muted-foreground">REST API development and integration connecting application to data services.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">04. Data Layer</div>
+            <h4 className="text-sm font-bold text-foreground">SQL Database</h4>
+            <p className="text-xs text-muted-foreground">Relational database tables, SQL queries, and data operations management.</p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  if (slug === "tadqeeq-erp-solution") {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              ERP Module & Data Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              ASP.NET ERP: Inventory, Sales & CRM + SQL Database Integration
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            Enterprise ERP
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">01. ERP Modules</div>
+            <h4 className="text-sm font-bold text-foreground">Inventory, Sales & CRM</h4>
+            <p className="text-xs text-muted-foreground">Stock management, sales order processing, and customer relationship records.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">02. Application Layer</div>
+            <h4 className="text-sm font-bold text-foreground">ASP.NET Backend</h4>
+            <p className="text-xs text-muted-foreground">Business logic, module routing, and backend services developed in ASP.NET.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">03. API Layer</div>
+            <h4 className="text-sm font-bold text-foreground">API Integration</h4>
+            <p className="text-xs text-muted-foreground">API development connecting ERP business modules to data and backend services.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">04. Data Layer</div>
+            <h4 className="text-sm font-bold text-foreground">SQL Database</h4>
+            <p className="text-xs text-muted-foreground">Relational SQL tables, query optimization, and data schema management.</p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
   if (
     slug === "blockchain-data-marketplace" ||
     slug === "blockchain-enabled-decentralized-data-marketplace"
@@ -122,43 +208,46 @@ export function ArchitectureDiagram({ slug }: ArchitectureDiagramProps) {
     );
   }
 
-  if (slug === "infrastructure-complaint-management") {
+  if (
+    slug === "infrastructure-complaint-management" ||
+    slug === "infrastructure-complaint-management-system"
+  ) {
     return (
       <GlassCard className="p-6 sm:p-8 space-y-6">
         <div className="flex items-center justify-between border-b border-border/40 pb-4">
           <div>
             <h3 className="text-xl font-bold text-foreground">
-              Workflow & System Architecture
+              Workflow & Approval Architecture
             </h3>
             <p className="text-xs text-muted-foreground font-mono mt-1">
-              Multi-Level Approval Pipeline: IoT Sensors + Django RBAC
+              Multi-Stage Workflow: Submission ➔ Dual-Admin Approval ➔ Team Dispatch ➔ Resolution
             </p>
           </div>
           <span className="text-xs font-mono px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-            Enterprise Architecture
+            Workflow Architecture
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
-            <div className="font-mono text-xs text-primary font-bold">01. Ingestion</div>
-            <h4 className="text-sm font-bold text-foreground">Complaint / IoT Log</h4>
-            <p className="text-xs text-muted-foreground">User photo upload or IoT sensor event trigger.</p>
+            <div className="font-mono text-xs text-primary font-bold">01. Submission</div>
+            <h4 className="text-sm font-bold text-foreground">User Complaint</h4>
+            <p className="text-xs text-muted-foreground">Complaint logging with photo/document evidence attachment.</p>
           </div>
           <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
-            <div className="font-mono text-xs text-accent font-bold">02. Controller</div>
-            <h4 className="text-sm font-bold text-foreground">Django Backend</h4>
-            <p className="text-xs text-muted-foreground">ORM validation, audit trail, & role-based routing.</p>
+            <div className="font-mono text-xs text-accent font-bold">02. Dual Approval</div>
+            <h4 className="text-sm font-bold text-foreground">Dual-Admin Verification</h4>
+            <p className="text-xs text-muted-foreground">Requires 2 distinct admin approvals before status changes RED ➔ YELLOW.</p>
           </div>
           <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
-            <div className="font-mono text-xs text-primary font-bold">03. Workflow</div>
-            <h4 className="text-sm font-bold text-foreground">Multi-Level Review</h4>
-            <p className="text-xs text-muted-foreground">Engineer assignment, status updates, & approvals.</p>
+            <div className="font-mono text-xs text-primary font-bold">03. Execution</div>
+            <h4 className="text-sm font-bold text-foreground">Maintenance Work</h4>
+            <p className="text-xs text-muted-foreground">Team dispatch, WorkUpdate logging, & completion image upload.</p>
           </div>
           <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
             <div className="font-mono text-xs text-accent font-bold">04. Resolution</div>
-            <h4 className="text-sm font-bold text-foreground">Admin Analytics</h4>
-            <p className="text-xs text-muted-foreground">Real-time status tracking & resolution confirmation.</p>
+            <h4 className="text-sm font-bold text-foreground">Admin Verification</h4>
+            <p className="text-xs text-muted-foreground">Final admin evidence review and audit-backed resolution confirmation.</p>
           </div>
         </div>
       </GlassCard>

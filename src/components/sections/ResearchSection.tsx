@@ -8,7 +8,7 @@ import { GlassCard } from "@/components/shared/GlassCard";
 import { TechBadge } from "@/components/shared/TechBadge";
 import { publications } from "@/data/research";
 import { Button } from "@/components/ui/button";
-import { BookOpen, FileText, ArrowRight, ExternalLink, ShieldCheck } from "lucide-react";
+import { BookOpen, FileText, Download, ArrowRight, ExternalLink, ShieldCheck } from "lucide-react";
 
 export function ResearchSection() {
   const featuredResearch = publications.filter((p) => p.featured);
@@ -97,14 +97,22 @@ export function ResearchSection() {
 
                   {/* Actions */}
                   <div className="pt-6 border-t border-border/40 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       {pub.pdfUrl ? (
-                        <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer">
-                          <Button size="sm" className="rounded-full bg-primary text-primary-foreground gap-2">
-                            <FileText className="h-4 w-4" />
-                            Download PDF
-                          </Button>
-                        </a>
+                        <>
+                          <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" className="rounded-full bg-primary text-primary-foreground gap-2">
+                              <FileText className="h-4 w-4" />
+                              View Paper
+                            </Button>
+                          </a>
+                          <a href={pub.pdfUrl} download target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" variant="outline" className="rounded-full border-primary/30 gap-2">
+                              <Download className="h-4 w-4" />
+                              Download PDF
+                            </Button>
+                          </a>
+                        </>
                       ) : (
                         <Button size="sm" variant="outline" disabled className="rounded-full gap-2 opacity-60">
                           <FileText className="h-4 w-4" />
@@ -116,7 +124,7 @@ export function ResearchSection() {
                         <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
                           <Button size="sm" variant="ghost" className="rounded-full gap-2">
                             <ExternalLink className="h-4 w-4" />
-                            Read Paper
+                            DOI Link
                           </Button>
                         </a>
                       )}

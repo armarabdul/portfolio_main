@@ -18,7 +18,7 @@ export const profile: Profile = {
   phone: "+91 9964941418",
   website: "https://github.com/armarabdul",
   resumeUrl: "/resume/Abdul-Muqeet-Armar-Resume.pdf",
-  profileImage: "/images/profile-placeholder.svg",
+  profileImage: "/images/abdul-muqeet-armar.jpg",
   socialLinks: [
     {
       id: "github",
