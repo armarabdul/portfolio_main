@@ -7,8 +7,22 @@ import { GlassCard } from "@/components/shared/GlassCard";
 import { Button } from "@/components/ui/button";
 import { socialLinks } from "@/data/social";
 import { profile } from "@/data/profile";
-import { Mail, Phone, MapPin, Send, Download, CheckCircle2, RotateCcw } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Download,
+  CheckCircle2,
+  RotateCcw,
+  Loader2,
+  AlertCircle,
+} from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/shared/SocialIcons";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/moeajgdd";
+
+type SubmissionStatus = "idle" | "sending" | "success" | "error";
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -17,16 +31,52 @@ export function ContactSection() {
     subject: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SubmissionStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Modular UI demonstration — ready for future API route / EmailJS integration
-    setSubmitted(true);
+    if (status === "sending") return;
+
+    setStatus("sending");
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+      } else {
+        const data = await response.json().catch(() => null);
+        if (data && data.errors && data.errors.length > 0) {
+          setErrorMessage(
+            data.errors.map((err: { message: string }) => err.message).join(", ")
+          );
+        } else {
+          setErrorMessage(
+            "Failed to send message. Please try again or email directly."
+          );
+        }
+        setStatus("error");
+      }
+    } catch {
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
+      setStatus("error");
+    }
   };
 
   const handleReset = () => {
-    setSubmitted(false);
+    setStatus("idle");
+    setErrorMessage(null);
     setFormState({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -136,17 +186,17 @@ export function ContactSection() {
                 Send a Message
               </h3>
 
-              {submitted ? (
+              {status === "success" ? (
                 <div className="py-12 text-center space-y-6">
                   <div className="h-16 w-16 rounded-full bg-primary/20 border border-primary text-primary flex items-center justify-center mx-auto glow-blue">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
                   <div className="space-y-2">
                     <h4 className="text-xl font-bold text-foreground">
-                      Message Submitted Successfully!
+                      Thank you! Your message has been sent successfully.
                     </h4>
                     <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                      Thank you for reaching out. Your message has been logged and I will respond to your query promptly.
+                      Thank you for reaching out. I have received your submission and will get back to you as soon as possible.
                     </p>
                   </div>
                   <Button
@@ -160,6 +210,13 @@ export function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {status === "error" && errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-destructive/10 border border-destructive/30 text-destructive text-xs flex items-center gap-2">
+                      <AlertCircle className="h-4 w-4 shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-xs font-mono text-muted-foreground uppercase tracking-wider block">
@@ -167,6 +224,7 @@ export function ContactSection() {
                       </label>
                       <input
                         id="name"
+                        name="name"
                         type="text"
                         required
                         value={formState.name}
@@ -182,6 +240,7 @@ export function ContactSection() {
                       </label>
                       <input
                         id="email"
+                        name="email"
                         type="email"
                         required
                         value={formState.email}
@@ -198,6 +257,7 @@ export function ContactSection() {
                     </label>
                     <input
                       id="subject"
+                      name="subject"
                       type="text"
                       required
                       value={formState.subject}
@@ -213,6 +273,7 @@ export function ContactSection() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={5}
                       required
                       value={formState.message}
@@ -225,10 +286,20 @@ export function ContactSection() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 shadow-lg glow-blue text-xs sm:text-sm"
+                    disabled={status === "sending"}
+                    className="w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 shadow-lg glow-blue text-xs sm:text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="h-4 w-4" />
-                    Send Message
+                    {status === "sending" ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               )}
