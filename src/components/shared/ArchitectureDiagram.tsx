@@ -1,0 +1,255 @@
+import { GlassCard } from "./GlassCard";
+import { Database, Shield, Smartphone, Layers } from "lucide-react";
+
+interface ArchitectureDiagramProps {
+  slug: string;
+}
+
+export function ArchitectureDiagram({ slug }: ArchitectureDiagramProps) {
+  if (
+    slug === "blockchain-data-marketplace" ||
+    slug === "blockchain-enabled-decentralized-data-marketplace"
+  ) {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              System Architecture & Data Flow
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              Decentralized Web3 Pipeline: Smart Contracts + IPFS Storage
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+            Web3 Architecture
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          {/* Step 1 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+              <Smartphone className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-primary font-bold">Layer 01</div>
+            <h4 className="text-sm font-bold text-foreground">MetaMask Client</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Wallet authentication & transaction signing via EIP-1193 protocol.
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
+              <Layers className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-accent font-bold">Layer 02</div>
+            <h4 className="text-sm font-bold text-foreground">Next.js DApp UI</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              React interface communicating with Hardhat nodes & Web3 providers.
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+              <Shield className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-primary font-bold">Layer 03</div>
+            <h4 className="text-sm font-bold text-foreground">Solidity Contracts</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Ethereum smart contracts governing dataset rental & purchase logic.
+            </p>
+          </div>
+
+          {/* Step 4 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
+              <Database className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-accent font-bold">Layer 04</div>
+            <h4 className="text-sm font-bold text-foreground">IPFS Storage</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Decentralized content-addressed file storage for ML datasets.
+            </p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  if (slug === "aitm-official-website" || slug === "aitm-website") {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              Migration & System Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              CMS Migration: WordPress ➔ Custom Django Application & Admission Portal
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+            Web Architecture
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">01. Legacy Migration</div>
+            <h4 className="text-sm font-bold text-foreground">WordPress CMS</h4>
+            <p className="text-xs text-muted-foreground">Migrated static pages and content structures into Django models.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">02. App Controller</div>
+            <h4 className="text-sm font-bold text-foreground">Django Backend</h4>
+            <p className="text-xs text-muted-foreground">Python Django views, URL routing, and database models.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">03. Admin Panel</div>
+            <h4 className="text-sm font-bold text-foreground">Django Administration</h4>
+            <p className="text-xs text-muted-foreground">Centralized admin interface for institutional content updates.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">04. Portal UI</div>
+            <h4 className="text-sm font-bold text-foreground">Admission Portal & UI</h4>
+            <p className="text-xs text-muted-foreground">Responsive Bootstrap UI with dynamic student admission workflows.</p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  if (slug === "infrastructure-complaint-management") {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              Workflow & System Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              Multi-Level Approval Pipeline: IoT Sensors + Django RBAC
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+            Enterprise Architecture
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">01. Ingestion</div>
+            <h4 className="text-sm font-bold text-foreground">Complaint / IoT Log</h4>
+            <p className="text-xs text-muted-foreground">User photo upload or IoT sensor event trigger.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">02. Controller</div>
+            <h4 className="text-sm font-bold text-foreground">Django Backend</h4>
+            <p className="text-xs text-muted-foreground">ORM validation, audit trail, & role-based routing.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">03. Workflow</div>
+            <h4 className="text-sm font-bold text-foreground">Multi-Level Review</h4>
+            <p className="text-xs text-muted-foreground">Engineer assignment, status updates, & approvals.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">04. Resolution</div>
+            <h4 className="text-sm font-bold text-foreground">Admin Analytics</h4>
+            <p className="text-xs text-muted-foreground">Real-time status tracking & resolution confirmation.</p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  if (slug === "ai-weather-forecast") {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              ML Pipeline Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              Predictive Analytics: Scikit-learn + Flask API + React
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">
+            AI / ML Architecture
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">Input</div>
+            <h4 className="text-sm font-bold text-foreground">Weather Telemetry</h4>
+            <p className="text-xs text-muted-foreground">Historical weather data & live sensor inputs.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">Processing</div>
+            <h4 className="text-sm font-bold text-foreground">Scikit-learn Model</h4>
+            <p className="text-xs text-muted-foreground">Rainfall, temp & heatwave classification.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">API Layer</div>
+            <h4 className="text-sm font-bold text-foreground">Flask REST Server</h4>
+            <p className="text-xs text-muted-foreground">Low-latency prediction endpoint delivery.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">Visualization</div>
+            <h4 className="text-sm font-bold text-foreground">React Dashboard</h4>
+            <p className="text-xs text-muted-foreground">Interactive risk charts & AI assistant query interface.</p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  if (slug === "resume-screening") {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              NLP & Candidate Ranking Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              Automated Resume Screening: NLP Pipeline + FastAPI + React
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+            NLP Architecture
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">Ingestion</div>
+            <h4 className="text-sm font-bold text-foreground">Resume Parsing</h4>
+            <p className="text-xs text-muted-foreground">PDF/Doc text extraction & cleaning.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">NLP Vectorizer</div>
+            <h4 className="text-sm font-bold text-foreground">Skill Extraction</h4>
+            <p className="text-xs text-muted-foreground">Entity recognition & TF-IDF vectorization.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-primary font-bold">Scoring</div>
+            <h4 className="text-sm font-bold text-foreground">FastAPI Scorer</h4>
+            <p className="text-xs text-muted-foreground">Cosine similarity & candidate ranking model.</p>
+          </div>
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-2">
+            <div className="font-mono text-xs text-accent font-bold">Recruiter UI</div>
+            <h4 className="text-sm font-bold text-foreground">React Dashboard</h4>
+            <p className="text-xs text-muted-foreground">Ranked candidate table & skill match breakdown.</p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  return null;
+}

@@ -1,0 +1,81 @@
+import { ProcessStep } from "@/types";
+
+export const processSteps: ProcessStep[] = [
+  {
+    id: "requirement-analysis",
+    title: "Requirement Analysis",
+    description: "Gathering, analyzing, and documenting functional and non-functional requirements through stakeholder discussions and domain research.",
+    icon: "ClipboardList",
+    order: 1,
+  },
+  {
+    id: "research",
+    title: "Research",
+    description: "Conducting literature review, evaluating existing solutions, and identifying the best approaches and technologies.",
+    icon: "Search",
+    order: 2,
+  },
+  {
+    id: "prd",
+    title: "PRD",
+    description: "Creating a Product Requirements Document defining product vision, features, user stories, and acceptance criteria.",
+    icon: "FileText",
+    order: 3,
+  },
+  {
+    id: "srs",
+    title: "SRS",
+    description: "Developing a Software Requirements Specification with detailed technical requirements, constraints, and system behavior.",
+    icon: "BookOpen",
+    order: 4,
+  },
+  {
+    id: "system-design",
+    title: "System Design",
+    description: "Designing the system architecture, component interactions, API contracts, and technology stack decisions.",
+    icon: "Boxes",
+    order: 5,
+  },
+  {
+    id: "database-design",
+    title: "Database Design",
+    description: "Designing the database schema, relationships, normalization, indexing strategies, and data models.",
+    icon: "Database",
+    order: 6,
+  },
+  {
+    id: "development",
+    title: "Development",
+    description: "Implementing the solution following clean code principles, design patterns, and modern engineering practices.",
+    icon: "Code",
+    order: 7,
+  },
+  {
+    id: "testing",
+    title: "Testing",
+    description: "Performing unit testing, integration testing, and end-to-end testing for software quality and reliability.",
+    icon: "TestTube",
+    order: 8,
+  },
+  {
+    id: "deployment",
+    title: "Deployment",
+    description: "Deploying the application to production with CI/CD pipelines, environment configuration, and monitoring.",
+    icon: "Rocket",
+    order: 9,
+  },
+  {
+    id: "documentation",
+    title: "Documentation",
+    description: "Creating comprehensive technical documentation, API docs, user guides, and architectural decision records.",
+    icon: "FileCheck",
+    order: 10,
+  },
+  {
+    id: "maintenance",
+    title: "Maintenance",
+    description: "Ongoing monitoring, bug fixes, performance optimization, feature updates, and technical debt management.",
+    icon: "Settings",
+    order: 11,
+  },
+];
