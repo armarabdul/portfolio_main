@@ -31,18 +31,18 @@ const CATEGORY_META: Record<
     label: "Professional",
     icon: <Briefcase className="h-3 w-3" />,
     className:
-      "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
+      "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400",
   },
   research: {
     label: "Research",
     icon: <FlaskConical className="h-3 w-3" />,
-    className: "bg-violet-500/10 border-violet-500/30 text-violet-400",
+    className: "bg-violet-500/10 border-violet-500/30 text-violet-700 dark:text-violet-400",
   },
   academic: {
     label: "Academic",
     icon: <GraduationCap className="h-3 w-3" />,
     className:
-      "bg-sky-500/10 border-sky-500/30 text-sky-400",
+      "bg-sky-500/10 border-sky-500/30 text-sky-700 dark:text-sky-400",
   },
 };
 
