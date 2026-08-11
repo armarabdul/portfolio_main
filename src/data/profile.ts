@@ -14,7 +14,7 @@ export const profile: Profile = {
     "I build intelligent, scalable and secure software solutions combining Artificial Intelligence, Blockchain and Modern Web Technologies.",
   bio: "Software Engineer, AI & Machine Learning Engineer, Blockchain Researcher, and Lecturer based in Bhatkal, Karnataka, India. Experienced in full-stack web development, ERP software systems, machine learning pipelines, and blockchain-enabled decentralized data marketplaces.",
   location: "Bhatkal, Karnataka, India",
-  email: "[EMAIL_ADDRESS]",
+  email: "abdulmuqeetarmar@gmail.com",
   phone: "+91 9964941418",
   website: "https://github.com/armarabdul",
   resumeUrl: "/resume/Abdul-Muqeet-Armar-Resume.pdf",
