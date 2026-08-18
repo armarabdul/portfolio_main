@@ -28,8 +28,7 @@ export function Footer() {
           {/* Attribution */}
           <div className="text-center text-sm text-muted-foreground">
             <p className="flex items-center justify-center gap-1.5">
-              Designed & Developed with
-              <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500" />
+              Designed & Developed 
               by{" "}
               <span className="font-medium text-foreground">
                 {profile.name}
