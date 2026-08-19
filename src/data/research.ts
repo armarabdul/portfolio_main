@@ -248,7 +248,7 @@ export const publications: Publication[] = [
       { label: "Communication Rounds", value: "10" },
       { label: "Hospital Clients", value: "3" },
     ],
-    pdfUrl: undefined,
+    pdfUrl: "/research/ICOM26_Camera_Ready_FINAL.pdf",
     doiUrl: undefined,
     externalUrl: undefined,
   },
