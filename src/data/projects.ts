@@ -251,6 +251,92 @@ export const projects: Project[] = [
     screenshots: [],
     researchUrl: "/research/blockchain-enabled-decentralized-data-marketplace",
   },
+  {
+    id: "federated-learning-privacy-preserving-medical-data-classification",
+    slug: "federated-learning-privacy-preserving-medical-data-classification",
+    title:
+      "Federated Learning-Based Privacy-Preserving Medical Data Classification",
+    shortDescription:
+      "A research and software project implementing a privacy-preserving federated learning framework for collaborative medical data classification without sharing raw patient data.",
+    description:
+      "A research and software project focused on privacy-preserving medical data classification using Federated Learning. The system simulates multiple hospital clients that collaboratively train a machine learning model while keeping their local medical datasets private. The implementation combines Python, TensorFlow/Keras, Flower, and the Federated Averaging (FedAvg) algorithm to train and aggregate models across distributed hospital nodes using the Breast Cancer Wisconsin dataset.",
+    category: "research",
+    featured: true,
+    status: "completed",
+    startDate: "2026",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "Flower (flwr)",
+      "Scikit-learn",
+      "NumPy",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Federated Learning",
+      "FedAvg",
+      "Visual Studio Code",
+    ],
+    features: [
+      "Privacy-Preserving Medical Classification: Enables collaborative model training without transferring raw patient data.",
+      "Federated Hospital Clients: Simulates multiple independent hospital nodes with locally partitioned medical datasets.",
+      "Local Model Training: Each hospital trains a TensorFlow/Keras neural network using its private local data.",
+      "Federated Averaging: Aggregates locally trained model weights at the central server using the FedAvg algorithm.",
+      "Global Model Training: Redistributes aggregated model parameters to participating hospital clients across multiple communication rounds.",
+      "Medical Data Classification: Performs binary classification of breast cancer cases as malignant or benign.",
+      "Secure Parameter Sharing: Transmits model weights instead of raw medical records between clients and the server.",
+      "Performance Evaluation: Evaluates global model accuracy and loss across federated communication rounds.",
+    ],
+    responsibilities: [
+      "Built the complete federated learning implementation from scratch for privacy-preserving medical data classification.",
+      "Designed and implemented the distributed client-server architecture simulating multiple hospital nodes and a central federated aggregation server.",
+      "Developed the dataset loading, preprocessing, standardization, and partitioning workflow using Python and Scikit-learn.",
+      "Developed the TensorFlow/Keras neural network architecture used for local medical data classification.",
+      "Implemented hospital client functionality using the Flower federated learning framework, including parameter exchange, local training, and model evaluation.",
+      "Implemented the central Flower server using the Federated Averaging (FedAvg) strategy for aggregating model weights from participating clients.",
+      "Designed and executed the federated training workflow across multiple communication rounds and evaluated the resulting global model performance.",
+      "Conducted research and literature analysis on Federated Learning, privacy-preserving machine learning, healthcare AI, and secure collaborative model training.",
+      "Contributed to the research methodology, system architecture, implementation analysis, testing, results discussion, and technical documentation.",
+      "Worked collaboratively with the research team on preparing and documenting the project and research work for academic publication.",
+    ],
+    challenges: [
+      "Protecting sensitive medical information while enabling collaborative machine learning across multiple institutions.",
+      "Simulating independent hospital data silos while maintaining a functional federated client-server training workflow.",
+      "Ensuring that only model parameters are exchanged rather than raw medical datasets during federated communication.",
+      "Maintaining model performance across decentralized training rounds while preserving data confidentiality.",
+    ],
+    results: [
+      "Successfully implemented and tested a federated learning environment with three simulated hospital clients and a central Flower server.",
+      "Achieved approximately 97.1% global classification accuracy after 10 federated communication rounds.",
+      "Verified client-server communication and model weight aggregation using the Flower framework.",
+      "Demonstrated that raw medical data remains localized while only model parameters are exchanged during training.",
+      "Demonstrated a practical privacy-preserving approach for collaborative healthcare AI using Federated Learning.",
+      "Research work accepted at the 2026 10th International Conference on Mechatronics Engineering (ICOM).",
+    ],
+    problemStatement:
+      "Traditional centralized machine learning for healthcare requires sensitive patient data to be collected and transferred to a central repository, creating privacy, security, regulatory, and data-sharing challenges. The project addresses the need for a distributed learning architecture that enables multiple healthcare institutions to collaboratively train an accurate medical classification model without exposing their raw patient datasets.",
+    objectives: [
+      "Enable collaborative machine learning across multiple healthcare institutions without sharing raw patient data.",
+      "Preserve the confidentiality of localized medical datasets during model training.",
+      "Implement Federated Averaging for aggregation of locally trained model parameters.",
+      "Develop a simulated multi-hospital environment for privacy-preserving medical classification.",
+      "Evaluate the performance of the federated global model across multiple communication rounds.",
+      "Demonstrate the feasibility of Federated Learning as a privacy-preserving approach for healthcare AI.",
+    ],
+    solution:
+      "A federated learning architecture in which multiple simulated hospital clients independently train TensorFlow/Keras models using their local medical data. The Flower framework manages communication between clients and the central server, while the server applies Federated Averaging to combine locally trained model weights into a global model. The aggregated model is redistributed to participating clients for subsequent training rounds, ensuring that raw medical data remains localized.",
+    futureEnhancements: [
+      "Differential Privacy integration using DP-SGD for stronger privacy guarantees.",
+      "Secure Multi-Party Computation for protecting model weights during aggregation.",
+      "Advanced Federated Learning algorithms such as FedProx for handling Non-IID medical data.",
+      "Blockchain integration for immutable and traceable model update records.",
+      "Deployment across physically separated healthcare edge devices and IoT healthcare systems.",
+    ],
+    screenshots: [],
+    researchUrl:
+      "/research/federated-learning-privacy-preserving-medical-data-classification",
+  },
 
   // =========================================================================
   // CATEGORY 3: ACADEMIC / STUDENT PROJECTS

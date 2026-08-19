@@ -18,6 +18,15 @@ export interface ExperimentalResult {
   value: string;
 }
 
+export interface AuthorDetail {
+  name: string;
+  department?: string;
+  institution?: string;
+  city?: string;
+  country?: string;
+  email?: string;
+}
+
 export interface Publication {
   id: string;
   slug: string;
@@ -46,4 +55,8 @@ export interface Publication {
   contributions?: string[];
   limitations?: string[];
   futureWork?: string[];
+  conference?: string;
+  authorRole?: string;
+  myContribution?: string;
+  authorDetails?: AuthorDetail[];
 }

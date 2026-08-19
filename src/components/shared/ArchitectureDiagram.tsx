@@ -93,6 +93,78 @@ export function ArchitectureDiagram({ slug }: ArchitectureDiagramProps) {
   }
 
   if (
+    slug === "federated-learning-privacy-preserving-medical-data-classification"
+  ) {
+    return (
+      <GlassCard className="p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-border/40 pb-4">
+          <div>
+            <h3 className="text-xl font-bold text-foreground">
+              Federated Learning Client-Server Architecture
+            </h3>
+            <p className="text-xs text-muted-foreground font-mono mt-1">
+              Privacy-Preserving Training: Flower Framework + TensorFlow/Keras + FedAvg Strategy
+            </p>
+          </div>
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">
+            Federated Architecture
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          {/* Step 1 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+              <Database className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-primary font-bold">Layer 01</div>
+            <h4 className="text-sm font-bold text-foreground">Hospital Data Silos</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Simulated independent hospital nodes holding localized medical datasets.
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
+              <Layers className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-accent font-bold">Layer 02</div>
+            <h4 className="text-sm font-bold text-foreground">Local Model Training</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              TensorFlow/Keras neural network training on private hospital data.
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+              <Shield className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-primary font-bold">Layer 03</div>
+            <h4 className="text-sm font-bold text-foreground">Flower Server & FedAvg</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Central server aggregating client model weights via Federated Averaging.
+            </p>
+          </div>
+
+          {/* Step 4 */}
+          <div className="p-4 rounded-xl glass border border-border/60 space-y-3 relative group hover:border-primary/50 transition-all">
+            <div className="h-10 w-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
+              <Smartphone className="h-5 w-5" />
+            </div>
+            <div className="font-mono text-xs text-accent font-bold">Layer 04</div>
+            <h4 className="text-sm font-bold text-foreground">Global Model Broadcast</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Redistribution of updated global parameters across communication rounds.
+            </p>
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  if (
     slug === "blockchain-data-marketplace" ||
     slug === "blockchain-enabled-decentralized-data-marketplace"
   ) {

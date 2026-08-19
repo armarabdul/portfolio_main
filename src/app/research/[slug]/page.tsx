@@ -90,7 +90,20 @@ export default async function PublicationPage({
                   {pub.authors.join(", ")}
                 </span>
               </div>
-              {pub.institution && (
+              {pub.authorRole && (
+                <div className="flex flex-wrap items-center gap-2 text-xs text-accent font-semibold">
+                  <span>Author Role: {pub.authorRole}</span>
+                </div>
+              )}
+              {pub.conference && (
+                <div className="flex flex-wrap items-center gap-2 text-xs">
+                  <Building className="h-3.5 w-3.5 text-primary shrink-0" />
+                  <span className="text-foreground font-medium">
+                    Conference: {pub.conference}
+                  </span>
+                </div>
+              )}
+              {pub.institution && !pub.conference && (
                 <div className="flex flex-wrap items-center gap-2 text-xs">
                   <Building className="h-3.5 w-3.5 text-primary shrink-0" />
                   <span>
@@ -214,6 +227,52 @@ export default async function PublicationPage({
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {/* Individual Author Contribution */}
+            {pub.myContribution && (
+              <div className="pt-6 border-t border-border/40 space-y-3">
+                <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+                  <Cpu className="h-4 w-4 text-accent" />
+                  Author Role & Individual Contribution
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {pub.myContribution}
+                </p>
+              </div>
+            )}
+
+            {/* Author Affiliations */}
+            {pub.authorDetails && pub.authorDetails.length > 0 && (
+              <div className="pt-6 border-t border-border/40 space-y-4">
+                <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+                  <Building className="h-4 w-4 text-primary" />
+                  Authors & Institutional Affiliations
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {pub.authorDetails.map((author, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 rounded-xl glass border border-border/50 text-xs space-y-1"
+                    >
+                      <div className="font-bold text-foreground font-mono">
+                        {idx + 1}. {author.name}
+                      </div>
+                      {author.department && (
+                        <div className="text-muted-foreground">{author.department}</div>
+                      )}
+                      {author.institution && (
+                        <div className="text-muted-foreground/80 font-mono">
+                          {author.institution}
+                          {author.city || author.country
+                            ? ` (${[author.city, author.country].filter(Boolean).join(", ")})`
+                            : ""}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 
